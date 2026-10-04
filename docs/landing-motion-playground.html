@@ -8,8 +8,8 @@
   <title>森の仲間が動き出す｜LP演出お試しページ</title>
   <link rel="icon" href="pattern-1-acorn-icon.png">
   <link rel="stylesheet" href="landing-motion-2.css">
-  <link rel="stylesheet" href="landing-motion-playground.css?v=20261004-review1">
-  <script defer src="landing-motion-playground.js?v=20261004-review1"></script>
+  <link rel="stylesheet" href="landing-motion-playground.css?v=20261005-autumn-review1">
+  <script defer src="landing-motion-playground.js?v=20261005-autumn-review1"></script>
 </head>
 <body class="playground">
   <svg class="motion-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -89,23 +89,11 @@
 
     <section class="look" id="look" aria-labelledby="look-title">
       <div class="look-copy" data-reveal><p class="eyebrow">04 — 森を見る</p><h2 id="look-title">数えたら、<br>景色も見てみよう。</h2><p>木の根元や落ち葉の下。ゆっくり歩くと、森の上にも気配が見つかります。</p></div>
-      <div class="season-switch" role="group" aria-label="季節の仲間の動きを試す">
-        <span>季節の仲間を試す</span>
-        <button type="button" data-season-choice="spring" aria-pressed="false">春 · チョウ</button>
-        <button type="button" data-season-choice="summer" aria-pressed="false">夏 · トンボとカエル</button>
-        <button type="button" data-season-choice="autumn" aria-pressed="true">秋 · 小鳥</button>
-      </div>
-      <figure class="look-scene glide-scene" data-motion-threshold="0.1" data-season="autumn" data-motion-scene data-reveal>
+      <figure class="look-scene glide-scene" data-motion-threshold="0.1" data-motion-scene data-reveal>
         <img src="motion-assets/forest-clearing.jpg" alt="秋の森の広場と、山の向こうへ広がる空" loading="lazy" width="1448" height="1086">
-        <img class="motion-character owl-glide" src="landing-assets/motion-test/owl/glide/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/owl/glide/frame-01.png|landing-assets/motion-test/owl/glide/frame-02.png|landing-assets/motion-test/owl/glide/frame-03.png|landing-assets/motion-test/owl/glide/frame-04.png" data-loop="true" data-frame-interval="260">
-        <img class="motion-character season-guest season-guest--spring" src="landing-assets/motion-test/butterfly/flutter/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="spring" data-motion-frames="landing-assets/motion-test/butterfly/flutter/frame-01.png|landing-assets/motion-test/butterfly/flutter/frame-02.png|landing-assets/motion-test/butterfly/flutter/frame-03.png|landing-assets/motion-test/butterfly/flutter/frame-04.png" data-loop="true" data-frame-interval="240">
-        <img class="motion-character season-guest season-guest--summer" src="landing-assets/motion-test/dragonfly/glide/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="summer" data-motion-frames="landing-assets/motion-test/dragonfly/glide/frame-01.png|landing-assets/motion-test/dragonfly/glide/frame-02.png|landing-assets/motion-test/dragonfly/glide/frame-03.png|landing-assets/motion-test/dragonfly/glide/frame-04.png" data-loop="true" data-frame-interval="240">
-        <img class="motion-character season-guest season-guest--summer season-frog" src="landing-assets/motion-test/frog/idle-blink/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="summer" data-motion-frames="landing-assets/motion-test/frog/idle-blink/frame-01.png|landing-assets/motion-test/frog/idle-blink/frame-02.png|landing-assets/motion-test/frog/idle-blink/frame-03.png|landing-assets/motion-test/frog/idle-blink/frame-04.png" data-loop="true" data-frame-interval="380">
-        <img class="motion-character season-guest season-guest--autumn is-season-current" src="landing-assets/motion-test/bird/glide/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="autumn" data-motion-frames="landing-assets/motion-test/bird/glide/frame-01.png|landing-assets/motion-test/bird/glide/frame-02.png|landing-assets/motion-test/bird/glide/frame-03.png|landing-assets/motion-test/bird/glide/frame-04.png" data-loop="true" data-frame-interval="260">
-        <svg class="season-leaves" aria-hidden="true"><use href="#leaf-shelter"/></svg>
+        <span class="bird-flight-crop" aria-hidden="true"><img class="motion-character bird-glide" src="landing-assets/motion-test/bird/glide/frame-01.png" alt="" data-motion-frames="landing-assets/motion-test/bird/glide/frame-01.png|landing-assets/motion-test/bird/glide/frame-02.png|landing-assets/motion-test/bird/glide/frame-03.png|landing-assets/motion-test/bird/glide/frame-04.png" data-loop="true" data-frame-interval="260"></span>
       </figure>
-      <p class="season-note" id="season-note" aria-live="polite">秋の仲間：小鳥が、フクロウの飛ぶ空を横切ります。</p>
-      <p class="motion-context">秋の森を舞台に、季節ごとの仲間の動きを見比べられます。</p>
+      <p class="look-motion-note">枝にいた小鳥が、秋の森の空をゆっくり横切ります。</p>
       <p class="look-note" data-reveal>急がないで歩くと、見えるものが増えてくる。</p>
     </section>
 

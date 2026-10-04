@@ -49,35 +49,18 @@
 .playground .forest-caption { z-index: 4; top: 12px; right: 12px; max-width: calc(100% - 24px); font-size: 12px; }
 .replay-motion { display: flex; align-items: center; justify-content: center; gap: 12px; width: fit-content; margin: 17px auto 0; padding: 9px 15px; border: 1px solid #375c4b45; border-radius: 99px; background: transparent; color: var(--moss); font: 700 12px var(--display); cursor: pointer; }
 .replay-motion:hover { background: #375c4b0c; }
-.replay-motion:focus-visible, .season-switch button:focus-visible { outline: 3px solid #b66b3e; outline-offset: 4px; }
+.replay-motion:focus-visible { outline: 3px solid #b66b3e; outline-offset: 4px; }
 .replay-motion--light { color: var(--cream); border-color: #fff9ed55; }
-/* 04: two airborne visitors at most; the preview explicitly compares guest motions on the autumn backdrop. */
+/* 04: one small autumn bird crosses the sky. */
 .playground .look-scene { height: clamp(330px,43vw,520px); aspect-ratio: auto; }
 .playground .look-scene > img:first-child { object-position: center 43%; }
 .glide-scene { position: relative; isolation: isolate; overflow: hidden; container-type: inline-size; }
 .glide-scene > img:first-child { position: relative; z-index: 0; }
-.owl-glide { top: 9%; left: -20%; width: clamp(80px,11vw,140px); opacity: 0; }
-.owl-glide.is-playing { animation: owl-cross 10s linear infinite; }
-@keyframes owl-cross { 0% { left: -20%; translate: 0 8px; opacity: 0; } 8%, 85% { opacity: 1; } 50% { translate: 0 -18px; } 100% { left: 108%; translate: 0 6px; opacity: 0; } }
-.season-guest { visibility: hidden; opacity: 0; }
-.season-guest.is-season-current { visibility: visible; opacity: 1; }
-.season-guest--spring { top: 26%; left: 68%; width: clamp(48px,7vw,82px); }
-.season-guest--summer { top: 24%; left: 68%; width: clamp(54px,7vw,88px); }
-.season-leaves { display: none; position: absolute; z-index: 3; right: 6%; bottom: 7%; width: 110px; height: 38px; }
-.glide-scene[data-season="summer"] .season-leaves { display: block; }
-.season-frog { top: auto; left: auto; right: 8%; bottom: 9%; width: clamp(60px,8vw,95px); }
-.season-guest--autumn { top: 30%; left: 70%; width: clamp(65px,9vw,108px); }
-.glide-scene.is-active .season-guest--spring.is-season-current { animation: butterfly-drift 7s ease-in-out infinite; }
-.glide-scene.is-active .season-guest--summer.is-season-current:not(.season-frog) { animation: dragonfly-drift 7s ease-in-out infinite; }
-.glide-scene.is-active .season-guest--autumn.is-season-current { animation: bird-cross 9s 1.4s linear infinite; }
-@keyframes butterfly-drift { 0%,100% { left: 68%; translate: 0 0; } 50% { left: 38%; translate: 0 -24px; } }
-@keyframes dragonfly-drift { 0%,100% { left: 66%; translate: 0 0; } 50% { left: 40%; translate: 0 18px; } }
-@keyframes bird-cross { 0% { left: 105%; opacity: 0; } 8%,85% { opacity: 1; } 100% { left: -18%; opacity: 0; } }
-.season-switch { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 9px; margin: 0 auto 18px; color: var(--deep); font-size: 13px; font-weight: 800; }
-.season-switch button { padding: 9px 14px; border: 1px solid #2d43303d; border-radius: 99px; background: #fff9eda8; color: var(--deep); font: inherit; cursor: pointer; }
-.season-switch button[aria-pressed="true"] { background: var(--deep); color: var(--cream); }
-.season-note { min-height: 1.8em; margin: 12px auto 0; color: var(--moss); font: 16px var(--hand); }
-.motion-context { margin: 9px auto 0; max-width: 48ch; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.bird-flight-crop { position: absolute; z-index: 2; top: 9%; left: -20%; display: block; width: clamp(80px,11vw,140px); aspect-ratio: 1.7; overflow: hidden; opacity: 0; }
+.bird-flight-crop .bird-glide { top: -82%; left: -5%; width: 106.5%; max-width: none; clip-path: none; filter: none; }
+.glide-scene.is-active .bird-flight-crop { animation: bird-cross 10s linear infinite; }
+@keyframes bird-cross { 0% { left: -20%; translate: 0 8px; opacity: 0; } 8%, 85% { opacity: 1; } 50% { translate: 0 -18px; } 100% { left: 108%; translate: 0 6px; opacity: 0; } }
+.look-motion-note { min-height: 1.8em; margin: 12px auto 0; color: var(--moss); font: 16px var(--hand); }
 /* 05: each animal moves steadily towards the marked return spot and stays there. */
 .return-demo { grid-column: 1/-1; min-width: 0; }
 .return-journey { position: relative; min-height: clamp(270px,31vw,360px); overflow: hidden; border-radius: 22px; background: linear-gradient(0deg,#1f352967,transparent 70%),url("motion-assets/forest-clearing.jpg") center 66%/cover; box-shadow: 0 18px 38px #1f2b312e; }
@@ -133,14 +116,8 @@
  .stage-branch { top: 40%; }
  .playground .look h2 { font-size: clamp(28px,8vw,40px); }
  .playground .look-scene { height: auto; aspect-ratio: 4/3; }
- .owl-glide { width: 80px; }
- .season-guest--spring, .season-guest--summer { width: 53px; }
- .season-frog { width: 62px; }
- .season-guest--autumn { width: 70px; }
- .season-switch { gap: 7px; font-size: 11px; }
- .season-switch > span { flex-basis: 100%; margin-bottom: 3px; }
- .season-switch button { padding: 9px 10px; }
- .season-note { font-size: 14px; line-height: 1.8; }
+ .bird-flight-crop { width: 80px; }
+ .look-motion-note { font-size: 14px; line-height: 1.8; }
  .playground .return { grid-template-columns: 1fr; }
  .return-journey { min-height: 250px; }
  .return-walker { bottom: 23%; }
@@ -156,7 +133,7 @@
 @media (prefers-reduced-motion: reduce) {
  .playground [data-reveal], .playground [data-enter] { opacity: 1 !important; transform: none !important; }
  .bird-eyelids { display: none; }
- .owl-glide { left: 17%; opacity: 1; }
+ .glide-scene.is-active .bird-flight-crop { left: 17%; opacity: 1; translate: none; animation: none !important; }
  .playground .return-journey .return-walker { animation: none !important; left: var(--walk-to); opacity: 1; }
  .replay-motion { display: none; }
 }

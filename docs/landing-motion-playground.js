@@ -27,7 +27,6 @@
   function startSequence(actor) {
     const state = sequenceState(actor);
     if (reducedMotion || document.hidden || state.finished || state.timer || state.delayTimer || state.frames.length < 2) return;
-    if (actor.dataset.seasonalActor && !actor.classList.contains('is-season-current')) return;
     const interval = Number(actor.dataset.frameInterval) || 300;
     const begin = () => {
       state.delayTimer = null;
@@ -93,26 +92,6 @@
     pauseMotion();
     resumeMotion();
   });
-
-  const seasonCopy = {
-    spring: '春の仲間：チョウが、羽ばたきながら空をゆっくり漂います。',
-    summer: '夏の仲間：トンボが飛び、カエルが葉陰でひと休み。',
-    autumn: '秋の仲間：小鳥が、フクロウの飛ぶ空を横切ります。'
-  };
-  const buttons = Array.from(document.querySelectorAll('[data-season-choice]'));
-  const guests = Array.from(document.querySelectorAll('[data-seasonal-actor]'));
-  buttons.forEach(button => button.addEventListener('click', () => {
-    const season = button.dataset.seasonChoice;
-    buttons.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
-    guests.forEach(actor => {
-      const selected = actor.dataset.seasonalActor === season;
-      actor.classList.toggle('is-season-current', selected);
-      stopSequence(actor);
-      if (selected && activeScenes.has(actor.closest('[data-motion-scene]'))) startSequence(actor);
-    });
-    document.querySelector('.glide-scene').dataset.season = season;
-    document.getElementById('season-note').textContent = seasonCopy[season];
-  }));
 
   document.querySelectorAll('[data-replay]').forEach(button => button.addEventListener('click', () => {
     const scene = document.getElementById(button.dataset.replay);
