@@ -16,7 +16,10 @@
     });
   }, { threshold: 0.14, rootMargin: '0px 0px -4% 0px' });
   reveals.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index % 3, 2) * 90}ms`;
+    const authoredDelay = Number(item.dataset.revealDelay);
+    item.style.transitionDelay = Number.isFinite(authoredDelay)
+      ? `${authoredDelay}ms`
+      : `${Math.min(index % 3, 2) * 90}ms`;
     observer.observe(item);
   });
 
@@ -28,6 +31,8 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -14% 0px' });
   peeks.forEach((item) => {
+    const delay = Number(item.dataset.peekDelay);
+    if (Number.isFinite(delay)) item.style.transitionDelay = `${delay}ms`;
     if (!item.closest('.friends-stage')) peekObserver.observe(item);
   });
 

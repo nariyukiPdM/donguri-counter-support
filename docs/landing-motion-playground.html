@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5ead6">
+  <meta name="description" content="森の仲間たちの動きを試す、どんぐりカウンターのLP演出テストページです。">
+  <title>森の仲間が動き出す｜LP演出お試しページ</title>
+  <link rel="icon" href="pattern-1-acorn-icon.png">
+  <link rel="stylesheet" href="landing-motion-2.css">
+  <link rel="stylesheet" href="landing-motion-playground.css?v=20261004-review1">
+  <script defer src="landing-motion-playground.js?v=20261004-review1"></script>
+</head>
+<body class="playground">
+  <svg class="motion-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="leaf-shelter" viewBox="0 0 200 70"><path d="M0 60Q35 28 70 56Q62 9 107 32Q140 0 165 34Q190 10 200 62Z" fill="#6d773d"/><path d="M10 65Q25 28 58 44Q95 18 121 54Q161 14 193 65Z" fill="#ba8447"/><path d="M3 67Q42 38 85 65Q126 30 153 58Q180 38 200 67Z" fill="#c7a261"/></symbol>
+    <symbol id="forest-acorn" viewBox="0 0 40 48"><path d="M21 10q-2-7 3-9" fill="none" stroke="#65412c" stroke-width="4" stroke-linecap="round"/><path d="M7 20Q3 42 20 46Q38 41 33 20Z" fill="#b87c38" stroke="#63482f" stroke-width="2"/><path d="M3 21Q3 8 20 8Q37 8 37 21Z" fill="#765039" stroke="#583b29" stroke-width="2"/><path d="M11 13l4 5m3-7 4 7m5-5 4 5" stroke="#a27b50" stroke-width="2"/></symbol>
+  </defs></svg>
+  <a class="skip-link" href="#main">本文へ</a>
+  <header class="topbar">
+    <a class="brand" href="landing.html"><img src="pattern-1-acorn-icon.png" alt="" width="36" height="36"><span>どんぐりカウンター</span></a>
+    <nav aria-label="関連ページ"><a href="landing.html">正式LP</a><a href="index.html">サポート</a><a href="privacy.html">プライバシーポリシー</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" data-motion-scene>
+      <img class="hero-landscape" src="motion-assets/hero-woods.jpg" alt="落ち葉の小道が森の向こうへ続く、秋の公園" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">LP MOTION PLAYGROUND</p>
+        <h1><span class="hero-title-line">森の仲間が、</span><span class="hero-title-line">歩き出す。</span></h1>
+        <p>スクロールすると、森のあちこちから仲間が登場。<br>それぞれの動きで、ものがたりをつないでいきます。</p>
+        <a class="pill-button" href="#story">森を歩いてみる <span aria-hidden="true">↓</span></a>
+      </div>
+      <img class="hero-mascot hero-mascot--master" src="motion-assets/master-acorn.png" alt="" aria-hidden="true" data-enter="left" style="--enter-delay:0ms">
+      <div class="hero-perch" aria-hidden="true">
+        <img class="hero-bird" src="motion-assets/bird.png" alt="">
+        <svg class="bird-eyelids" viewBox="0 0 1244 1264"><path d="M650 432Q720 413 831 430L825 508Q731 535 659 476Z" fill="#8b9eb5"/><path d="M906 430Q966 411 1041 430L1036 500Q962 524 910 473Z" fill="#8b9eb5"/><path d="M659 472Q735 493 818 470M912 472Q966 486 1034 467" fill="none" stroke="#514031" stroke-width="10" stroke-linecap="round"/></svg>
+        <span class="perch-branch"></span>
+      </div>
+      <img class="hero-mascot hero-mascot--squirrel" src="landing-assets/motion-test/squirrel/peek/frame-01.png" alt="" aria-hidden="true" data-enter="right" style="--enter-delay:650ms" data-motion-frames="landing-assets/motion-test/squirrel/peek/frame-01.png|landing-assets/motion-test/squirrel/peek/frame-02.png|landing-assets/motion-test/squirrel/peek/frame-03.png|landing-assets/motion-test/squirrel/peek/frame-04.png" data-loop="true" data-frame-interval="540" data-start-delay="620">
+      <svg class="hero-leaves" aria-hidden="true"><use href="#leaf-shelter"/></svg>
+      <span class="hero-caption">お試しページ · キャラクターアニメーション</span>
+      <a class="scroll-mark" href="#story" aria-label="下へスクロール"><span></span></a>
+    </section>
+
+    <section class="chapter discovery" id="story" aria-labelledby="discovery-title">
+      <div class="chapter-text" data-reveal>
+        <p class="eyebrow">01 — みつける</p>
+        <h2 id="discovery-title">葉っぱの下に、<br>だれかいる。</h2>
+        <p>足もとのどんぐりに、森の仲間も気づいたみたい。タヌキが葉陰からのぞき、リスが鼻を近づけてくんくん。</p>
+      </div>
+      <figure class="phone-art discovery-scene" data-reveal="from-right">
+        <img class="discovery-image" src="pattern-1-portrait-camera.png" alt="秋の公園でどんぐりを見つけるアプリ画面のイメージ" loading="lazy" width="327" height="709">
+        <div class="discovery-ground" data-motion-scene aria-hidden="true">
+        <img class="motion-character discovery-tanuki" src="landing-assets/motion-test/tanuki/peek/frame-01.png" alt="" aria-hidden="true" data-enter="bottom" data-motion-frames="landing-assets/motion-test/tanuki/peek/frame-01.png|landing-assets/motion-test/tanuki/peek/frame-02.png|landing-assets/motion-test/tanuki/peek/frame-03.png|landing-assets/motion-test/tanuki/peek/frame-04.png" data-start-delay="160" data-frame-interval="300">
+        <svg class="discovery-acorn" aria-hidden="true"><use href="#forest-acorn"/></svg>
+        <span class="squirrel-sniff-motion" aria-hidden="true">
+          <img class="motion-character discovery-squirrel" src="landing-assets/motion-test/squirrel/peek/frame-01.png" alt="" data-enter="left" data-motion-frames="landing-assets/motion-test/squirrel/peek/frame-01.png|landing-assets/motion-test/squirrel/peek/frame-02.png|landing-assets/motion-test/squirrel/peek/frame-03.png|landing-assets/motion-test/squirrel/peek/frame-04.png" data-loop="true" data-frame-interval="600" data-start-delay="720">
+        </span>
+        <svg class="discovery-leaves" aria-hidden="true"><use href="#leaf-shelter"/></svg>
+        </div>
+        <figcaption>あった。ここに、ひとつ。</figcaption>
+      </figure>
+      <span class="chapter-index">01</span>
+    </section>
+
+    <section class="app-story" id="app" aria-labelledby="app-title">
+      <div class="app-heading" data-reveal><p class="eyebrow">02 — かぞえる</p><h2 id="app-title">撮って、数えて、<br>たしかめる。</h2><p>見つけたどんぐりを撮影して、数を確かめます。</p></div>
+      <div class="app-flow">
+        <article class="app-step" data-reveal data-reveal-delay="0"><span class="step-number">1</span><img src="pattern-1-portrait-home.png" alt="マスターどんぐりが迎えるアプリのホーム画面" loading="lazy" width="327" height="709"><h3>森へ出かける</h3><p>マスターどんぐりと、今日の探検へ。</p></article>
+        <article class="app-step app-step--raised" data-reveal data-reveal-delay="260"><span class="step-number">2</span><img src="pattern-1-portrait-camera.png" alt="カメラでどんぐりを撮影する画面" loading="lazy" width="327" height="709"><h3>写真を撮る</h3><p>見つけたどんぐりを画面におさめる。</p></article>
+        <article class="app-step" data-reveal data-reveal-delay="520"><span class="step-number">3</span><img src="pattern-1-portrait-return.png" alt="どんぐりを元の場所へ戻す場面のアプリ画面" loading="lazy" width="327" height="709"><h3>数えて、返す</h3><p>数を確かめたら、見つけた場所の近くへ。</p></article>
+      </div>
+    </section>
+
+    <section class="friends" id="friends" aria-labelledby="friends-title">
+      <div class="friends-copy" data-reveal><p class="eyebrow">03 — 森の仲間</p><h2 id="friends-title">森には、<br>それぞれの<br>暮らし。</h2><p>ゆっくり息をするクマ。跳ねて、どんぐりをかじるリス。葉陰から出て丸まるハリネズミ。枝の上で首を傾けるフクロウ。</p><div class="friend-names"><span>クマ</span><span>リス</span><span>ハリネズミ</span><span>フクロウ</span></div></div>
+      <div class="friends-demo"><div class="motion-stage friends-stage" id="friends-motion" data-motion-scene role="img" aria-label="森の背景にクマ、リス、ハリネズミ、フクロウがそれぞれの動きで登場する">
+        <img class="friends-background" src="motion-assets/forest-clearing.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img class="motion-character stage-bear" src="landing-assets/motion-test/bear/breathe/frame-01.png" alt="" aria-hidden="true" data-enter="left" style="--enter-delay:100ms" data-motion-frames="landing-assets/motion-test/bear/breathe/frame-01.png|landing-assets/motion-test/bear/breathe/frame-02.png|landing-assets/motion-test/bear/breathe/frame-03.png|landing-assets/motion-test/bear/breathe/frame-04.png" data-loop="true" data-frame-interval="600" data-start-delay="100">
+        <img class="motion-character stage-squirrel" src="landing-assets/motion-test/squirrel/scamper-hop/frame-01.png" alt="" aria-hidden="true" data-enter="left" style="--enter-delay:480ms" data-intro-frames="landing-assets/motion-test/squirrel/scamper-hop/frame-01.png|landing-assets/motion-test/squirrel/scamper-hop/frame-02.png|landing-assets/motion-test/squirrel/scamper-hop/frame-03.png|landing-assets/motion-test/squirrel/scamper-hop/frame-04.png" data-motion-frames="landing-assets/motion-test/squirrel/eat-acorn/frame-01.png|landing-assets/motion-test/squirrel/eat-acorn/frame-02.png|landing-assets/motion-test/squirrel/eat-acorn/frame-03.png|landing-assets/motion-test/squirrel/eat-acorn/frame-04.png" data-loop="true" data-frame-interval="320" data-start-delay="480">
+        <img class="motion-character stage-hedgehog" src="landing-assets/motion-test/hedgehog/peek-from-leaves/frame-01.png" alt="" aria-hidden="true" data-enter="bottom" style="--enter-delay:900ms" data-motion-frames="landing-assets/motion-test/hedgehog/peek-from-leaves/frame-01.png|landing-assets/motion-test/hedgehog/peek-from-leaves/frame-02.png|landing-assets/motion-test/hedgehog/peek-from-leaves/frame-03.png|landing-assets/motion-test/hedgehog/peek-from-leaves/frame-04.png|landing-assets/motion-test/hedgehog/curl/frame-01.png|landing-assets/motion-test/hedgehog/curl/frame-02.png|landing-assets/motion-test/hedgehog/curl/frame-03.png|landing-assets/motion-test/hedgehog/curl/frame-04.png" data-frame-interval="280" data-start-delay="900">
+        <img class="motion-character stage-owl" src="landing-assets/motion-test/owl/head-turn-peek/frame-01.png" alt="" aria-hidden="true" data-enter="right" style="--enter-delay:1320ms" data-motion-frames="landing-assets/motion-test/owl/head-turn-peek/frame-01.png|landing-assets/motion-test/owl/head-turn-peek/frame-02.png|landing-assets/motion-test/owl/head-turn-peek/frame-01.png|landing-assets/motion-test/owl/head-turn-peek/frame-04.png|landing-assets/motion-test/owl/head-turn-peek/frame-01.png" data-frame-interval="360" data-start-delay="1320">
+        <span class="stage-branch" aria-hidden="true"></span>
+        <span class="forest-caption">それぞれの場所で、森の時間。</span>
+      </div><button class="replay-motion" type="button" data-replay="friends-motion">動きをもう一度見る <span aria-hidden="true">↻</span></button></div>
+    </section>
+
+    <section class="look" id="look" aria-labelledby="look-title">
+      <div class="look-copy" data-reveal><p class="eyebrow">04 — 森を見る</p><h2 id="look-title">数えたら、<br>景色も見てみよう。</h2><p>木の根元や落ち葉の下。ゆっくり歩くと、森の上にも気配が見つかります。</p></div>
+      <div class="season-switch" role="group" aria-label="季節の仲間の動きを試す">
+        <span>季節の仲間を試す</span>
+        <button type="button" data-season-choice="spring" aria-pressed="false">春 · チョウ</button>
+        <button type="button" data-season-choice="summer" aria-pressed="false">夏 · トンボとカエル</button>
+        <button type="button" data-season-choice="autumn" aria-pressed="true">秋 · 小鳥</button>
+      </div>
+      <figure class="look-scene glide-scene" data-motion-threshold="0.1" data-season="autumn" data-motion-scene data-reveal>
+        <img src="motion-assets/forest-clearing.jpg" alt="秋の森の広場と、山の向こうへ広がる空" loading="lazy" width="1448" height="1086">
+        <img class="motion-character owl-glide" src="landing-assets/motion-test/owl/glide/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/owl/glide/frame-01.png|landing-assets/motion-test/owl/glide/frame-02.png|landing-assets/motion-test/owl/glide/frame-03.png|landing-assets/motion-test/owl/glide/frame-04.png" data-loop="true" data-frame-interval="260">
+        <img class="motion-character season-guest season-guest--spring" src="landing-assets/motion-test/butterfly/flutter/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="spring" data-motion-frames="landing-assets/motion-test/butterfly/flutter/frame-01.png|landing-assets/motion-test/butterfly/flutter/frame-02.png|landing-assets/motion-test/butterfly/flutter/frame-03.png|landing-assets/motion-test/butterfly/flutter/frame-04.png" data-loop="true" data-frame-interval="240">
+        <img class="motion-character season-guest season-guest--summer" src="landing-assets/motion-test/dragonfly/glide/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="summer" data-motion-frames="landing-assets/motion-test/dragonfly/glide/frame-01.png|landing-assets/motion-test/dragonfly/glide/frame-02.png|landing-assets/motion-test/dragonfly/glide/frame-03.png|landing-assets/motion-test/dragonfly/glide/frame-04.png" data-loop="true" data-frame-interval="240">
+        <img class="motion-character season-guest season-guest--summer season-frog" src="landing-assets/motion-test/frog/idle-blink/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="summer" data-motion-frames="landing-assets/motion-test/frog/idle-blink/frame-01.png|landing-assets/motion-test/frog/idle-blink/frame-02.png|landing-assets/motion-test/frog/idle-blink/frame-03.png|landing-assets/motion-test/frog/idle-blink/frame-04.png" data-loop="true" data-frame-interval="380">
+        <img class="motion-character season-guest season-guest--autumn is-season-current" src="landing-assets/motion-test/bird/glide/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="autumn" data-motion-frames="landing-assets/motion-test/bird/glide/frame-01.png|landing-assets/motion-test/bird/glide/frame-02.png|landing-assets/motion-test/bird/glide/frame-03.png|landing-assets/motion-test/bird/glide/frame-04.png" data-loop="true" data-frame-interval="260">
+        <svg class="season-leaves" aria-hidden="true"><use href="#leaf-shelter"/></svg>
+      </figure>
+      <p class="season-note" id="season-note" aria-live="polite">秋の仲間：小鳥が、フクロウの飛ぶ空を横切ります。</p>
+      <p class="motion-context">秋の森を舞台に、季節ごとの仲間の動きを見比べられます。</p>
+      <p class="look-note" data-reveal>急がないで歩くと、見えるものが増えてくる。</p>
+    </section>
+
+    <section class="return" id="return" aria-labelledby="return-title">
+      <figure class="return-art return-scene" data-motion-scene data-reveal="from-left">
+        <img src="pattern-1-portrait-return.png" alt="マスターどんぐりが、木の根元へどんぐりを戻す場面" loading="lazy" width="327" height="709">
+      </figure>
+      <div class="return-copy" data-reveal><p class="eyebrow">05 — 元の場所へ</p><h2 id="return-title">数えたら、<br>森へ返そう。</h2><p>マスターどんぐりに、リスとタヌキがついていく。どんぐりは森の仲間たちの食べものや、次の芽吹きにつながるもの。見つけた場所の近くへ戻そう。</p><p class="promise-note">公園の自然を、みんなで大切に。</p></div>
+      <div class="return-demo"><div class="return-journey" id="return-motion" data-motion-scene role="img" aria-label="マスターどんぐりが進み、リスとタヌキがあとを追って森へどんぐりを返しに行く">
+        <img class="return-walker return-master" src="motion-assets/master-acorn.png" alt="" aria-hidden="true">
+        <img class="return-walker return-squirrel" src="landing-assets/motion-test/squirrel/walk/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/squirrel/walk/frame-01.png|landing-assets/motion-test/squirrel/walk/frame-02.png|landing-assets/motion-test/squirrel/walk/frame-03.png|landing-assets/motion-test/squirrel/walk/frame-04.png" data-loop="true" data-frame-interval="240" data-start-delay="1000" data-stop-after="6400">
+        <img class="return-walker return-tanuki" src="landing-assets/motion-test/tanuki/walk/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/tanuki/walk/frame-01.png|landing-assets/motion-test/tanuki/walk/frame-02.png|landing-assets/motion-test/tanuki/walk/frame-03.png|landing-assets/motion-test/tanuki/walk/frame-04.png" data-loop="true" data-frame-interval="240" data-start-delay="1800" data-stop-after="6400">
+        <svg class="return-destination" aria-hidden="true"><use href="#forest-acorn"/></svg><span class="destination-label">見つけた場所</span>
+        <span class="return-caption">見つけた場所の近くへ、いっしょに返しにいこう。</span>
+      </div><button class="replay-motion" type="button" data-replay="return-motion">動きをもう一度見る <span aria-hidden="true">↻</span></button></div>
+    </section>
+
+    <section class="closing" id="closing" aria-labelledby="closing-title">
+      <div class="closing-demo"><figure class="closing-scene" id="closing-motion" data-reveal data-motion-scene>
+        <img src="motion-assets/forest-clearing.jpg" alt="どんぐりを戻したあとの、静かな秋の森" loading="lazy" width="576" height="432">
+        <img class="closing-character closing-master" src="motion-assets/master-acorn.png" alt="" aria-hidden="true">
+        <img class="closing-character closing-squirrel" src="landing-assets/motion-test/squirrel/eat-acorn/frame-01.png" alt="" aria-hidden="true">
+        <span class="closing-branch" aria-hidden="true"></span>
+        <img class="closing-character closing-owl" src="landing-assets/motion-test/owl/perch-blink/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/owl/perch-blink/frame-01.png|landing-assets/motion-test/owl/perch-blink/frame-02.png|landing-assets/motion-test/owl/perch-blink/frame-03.png|landing-assets/motion-test/owl/perch-blink/frame-04.png" data-start-delay="850" data-frame-interval="260">
+        <img class="closing-character closing-tanuki" src="landing-assets/motion-test/tanuki/tail-swish/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/tanuki/tail-swish/frame-01.png|landing-assets/motion-test/tanuki/tail-swish/frame-02.png|landing-assets/motion-test/tanuki/tail-swish/frame-03.png|landing-assets/motion-test/tanuki/tail-swish/frame-04.png" data-start-delay="1250" data-frame-interval="300">
+      </figure><button class="replay-motion replay-motion--light" type="button" data-replay="closing-motion">余韻をもう一度見る <span aria-hidden="true">↻</span></button></div>
+      <div class="closing-copy" data-reveal><p class="eyebrow">06 — また森で</p><h2 id="closing-title">ありがとう。<br>また会おうね。</h2><p>森の時間が、また静かに流れはじめます。次の季節にも、また会おう。</p><a class="pill-button pill-button--light" href="landing.html">正式LPへ <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="#top"><img src="pattern-1-acorn-icon.png" alt="" width="30" height="30"><span>どんぐりカウンター</span></a><div><a href="landing.html">正式LP</a><a href="privacy.html">プライバシーポリシー</a><a href="index.html">サポート</a></div></footer>
+</body>
+</html>
