@@ -25,11 +25,12 @@
 .motion-ready:not(.motion-reduced) [data-enter="right"] { transform: translateX(130%); }
 .motion-ready:not(.motion-reduced) [data-enter="bottom"] { transform: translateY(65%); }
 .motion-ready:not(.motion-reduced) .has-played [data-enter] { opacity: 1; transform: none; }
-.motion-character { position: absolute; z-index: 2; width: 100px; height: auto; max-width: none; object-fit: contain; border: 0; border-radius: 0; box-shadow: none; clip-path: inset(3% 2% 5% 2%); filter: drop-shadow(0 5px 7px #262b3129); pointer-events: none; }
+.motion-character { position: absolute; z-index: 2; width: 100px; height: auto; max-width: none; object-fit: contain; border: 0; border-radius: 0; box-shadow: none; filter: drop-shadow(0 5px 7px #262b3129); pointer-events: none; }
+.season-guest--spring, .season-guest--autumn { clip-path: none; }
 /* 01: the illustration holds still; the small scene has its own ground below it. */
 .discovery-scene { isolation: isolate; }
 .discovery-ground { position: relative; height: 126px; margin-top: 12px; border-radius: 50%; background: radial-gradient(ellipse at center, #476044 0, #47604400 68%); }
-.discovery-scene img.motion-character { width: 82px; height: auto; border: 0; border-radius: 0; clip-path: inset(3% 2% 5% 2%); object-fit: contain; }
+.discovery-scene img.motion-character { width: 82px; height: auto; border: 0; border-radius: 0; object-fit: contain; }
 .discovery-scene img.discovery-tanuki { right: 0; bottom: 15px; width: 84px; }
 .squirrel-sniff-motion { position: absolute; z-index: 3; left: 10%; bottom: 20px; width: 86px; transform-origin: 65% 85%; }
 .discovery-scene .squirrel-sniff-motion .discovery-squirrel { position: relative; width: 100%; height: auto; }
