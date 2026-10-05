@@ -33,7 +33,7 @@
 .discovery-scene img.motion-character { width: 82px; height: auto; border: 0; border-radius: 0; object-fit: contain; }
 .discovery-scene img.discovery-tanuki { right: 0; bottom: 15px; width: 84px; }
 .squirrel-sniff-motion { position: absolute; z-index: 3; left: 10%; bottom: 20px; width: 86px; transform-origin: 65% 85%; }
-.discovery-scene .squirrel-sniff-motion .discovery-squirrel { position: relative; width: 100%; height: auto; }
+.discovery-scene .squirrel-sniff-motion .discovery-squirrel { position: relative; width: 100%; height: auto; scale: -1 1; }
 .discovery-ground.is-active .squirrel-sniff-motion { animation: sniff-nod 4s 1.3s ease-in-out infinite; }
 @keyframes sniff-nod { 0%, 66%, 100% { transform: none; } 74% { transform: rotate(7deg) translateY(4px); } 84% { transform: rotate(-2deg); } }
 .discovery-acorn { position: absolute; z-index: 4; left: 45%; bottom: 21px; width: 22px; height: 26px; transform: rotate(17deg); }
@@ -83,7 +83,7 @@
 .season-leaves { display: none; position: absolute; z-index: 3; right: 6%; bottom: 7%; width: 110px; height: 38px; }
 .glide-scene[data-season="summer"] .season-leaves { display: block; }
 .season-frog { top: auto; left: auto; right: 8%; bottom: 9%; width: clamp(60px,8vw,95px); }
-.season-guest--autumn { top: 30%; left: 70%; width: clamp(65px,9vw,108px); }
+.season-guest--autumn { top: 30%; left: 70%; width: clamp(65px,9vw,108px); scale: -1 1; }
 .glide-scene.is-active .season-guest--spring.is-season-current { animation: butterfly-drift 7s ease-in-out infinite; }
 .glide-scene.is-active .season-guest--summer.is-season-current:not(.season-frog) { animation: dragonfly-drift 7s ease-in-out infinite; }
 .glide-scene.is-active .season-guest--autumn.is-season-current { animation: bird-cross 9s 1.4s linear infinite; }
@@ -106,7 +106,7 @@
 .master-walk-shadow { position: absolute; z-index: 1; bottom: 18%; left: var(--walk-from, -20%); width: 17%; height: 16px; border-radius: 50%; background: radial-gradient(ellipse, #19272266, #19272200 72%); opacity: 0; }
 .return-journey.has-played .return-master { animation: return-walk 6.4s linear both, master-steps .68s ease-in-out 9.4117647; }
 .return-journey.has-played .master-walk-shadow { animation: shadow-walk 6.4s linear both, shadow-steps .68s ease-in-out 9.4117647; }
-.return-journey.has-played .return-squirrel { animation: return-walk 6.4s 1s linear both, squirrel-steps .533s 1s ease-in-out 12; }
+.return-journey.has-played .return-squirrel { animation: return-walk 6.4s 1s linear both, squirrel-steps .533s 1s ease-in-out 12; scale: -1 1; }
 .return-journey.has-played .return-tanuki { animation: return-walk 6.4s 1.8s linear both; }
 @keyframes return-walk { 0% { left: var(--walk-from); opacity: 0; } 12% { opacity: 1; } 100% { left: var(--walk-to); opacity: 1; } }
 @keyframes master-steps { 0%, 100% { transform: translateY(0) rotate(1deg); } 25% { transform: translateY(-7px) rotate(-1.8deg); } 50% { transform: translateY(0) rotate(1.3deg); } 75% { transform: translateY(-4px) rotate(-1deg); } }
