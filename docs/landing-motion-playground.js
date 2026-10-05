@@ -67,7 +67,7 @@
     'motion-assets/master-acorn.png'
   ];
   document.querySelectorAll('[data-master-walk]').forEach(actor => {
-    const state = { timer: null, index: 0 };
+    const state = { timer: null, index: 0, steps: 0 };
     states.set(actor, state);
     masterWalkFrames.forEach(src => { const image = new Image(); image.src = src; });
   });
@@ -76,6 +76,16 @@
     if (!state || reducedMotion || document.hidden || state.timer || !activeScenes.has(actor.closest('[data-motion-scene]'))) return;
     state.timer = setInterval(() => {
       state.index = (state.index + 1) % masterWalkFrames.length;
+      state.steps += 1;
+      const maxSteps = Number(actor.dataset.walkSteps);
+      if (maxSteps && state.steps >= maxSteps) {
+        clearInterval(state.timer);
+        state.timer = null;
+        state.index = 0;
+        state.steps = 0;
+        actor.src = masterWalkFrames[1];
+        return;
+      }
       actor.src = masterWalkFrames[state.index];
     }, 170);
   }
@@ -85,6 +95,7 @@
     clearInterval(state.timer);
     state.timer = null;
     state.index = 0;
+    state.steps = 0;
     actor.src = masterWalkFrames[0];
   }
   function startScene(scene) {
