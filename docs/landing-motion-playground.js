@@ -27,6 +27,7 @@
   function startSequence(actor) {
     const state = sequenceState(actor);
     if (reducedMotion || document.hidden || state.finished || state.timer || state.delayTimer || state.frames.length < 2) return;
+    if (actor.dataset.seasonalActor && !actor.classList.contains('is-season-current')) return;
     const interval = Number(actor.dataset.frameInterval) || 300;
     const begin = () => {
       state.delayTimer = null;
@@ -59,6 +60,33 @@
     if (delay) state.delayTimer = setTimeout(begin, delay);
     else begin();
   }
+  const masterWalkFrames = [
+    'landing-assets/motion-test/master/walk/frame-01.png',
+    'motion-assets/master-acorn.png',
+    'landing-assets/motion-test/master/walk/frame-03.png',
+    'motion-assets/master-acorn.png'
+  ];
+  document.querySelectorAll('[data-master-walk]').forEach(actor => {
+    const state = { timer: null, index: 0 };
+    states.set(actor, state);
+    masterWalkFrames.forEach(src => { const image = new Image(); image.src = src; });
+  });
+  function startMasterWalk(actor) {
+    const state = states.get(actor);
+    if (!state || reducedMotion || document.hidden || state.timer || !activeScenes.has(actor.closest('[data-motion-scene]'))) return;
+    state.timer = setInterval(() => {
+      state.index = (state.index + 1) % masterWalkFrames.length;
+      actor.src = masterWalkFrames[state.index];
+    }, 170);
+  }
+  function stopMasterWalk(actor) {
+    const state = states.get(actor);
+    if (!state) return;
+    clearInterval(state.timer);
+    state.timer = null;
+    state.index = 0;
+    actor.src = masterWalkFrames[0];
+  }
   function startScene(scene) {
     activeScenes.add(scene);
     scene.classList.add('motion-scene', 'is-active', 'has-played');
@@ -66,6 +94,7 @@
       actor.classList.add('is-playing');
       startSequence(actor);
     });
+    scene.querySelectorAll('[data-master-walk]').forEach(startMasterWalk);
   }
   function stopScene(scene) {
     activeScenes.delete(scene);
@@ -74,10 +103,14 @@
       actor.classList.remove('is-playing');
       stopSequence(actor);
     });
+    scene.querySelectorAll('[data-master-walk]').forEach(stopMasterWalk);
   }
   function pauseMotion() {
     root.classList.add('motion-page-hidden');
-    states.forEach((state, actor) => stopSequence(actor));
+    states.forEach((state, actor) => {
+      stopSequence(actor);
+      if (actor.matches?.('[data-master-walk]')) stopMasterWalk(actor);
+    });
   }
   function resumeMotion() {
     root.classList.toggle('motion-page-hidden', document.hidden);
@@ -93,6 +126,28 @@
     resumeMotion();
   });
 
+  const seasonCopy = {
+    spring: '春の仲間：チョウが、羽ばたきながら空をゆっくり漂います。',
+    summer: '夏の仲間：トンボが飛び、カエルが葉陰でひと休み。',
+    autumn: '秋の仲間：小鳥が、フクロウの飛ぶ空を横切ります。'
+  };
+  const seasonButtons = Array.from(document.querySelectorAll('[data-season-choice]'));
+  const seasonalGuests = Array.from(document.querySelectorAll('[data-seasonal-actor]'));
+  seasonButtons.forEach(button => button.addEventListener('click', () => {
+    const season = button.dataset.seasonChoice;
+    seasonButtons.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+    seasonalGuests.forEach(actor => {
+      const selected = actor.dataset.seasonalActor === season;
+      actor.classList.toggle('is-season-current', selected);
+      stopSequence(actor);
+      const state = sequenceState(actor);
+      Object.assign(state, { index: 0, elapsed: 0, started: false, finished: false });
+      if (selected && activeScenes.has(actor.closest('[data-motion-scene]'))) startSequence(actor);
+    });
+    document.querySelector('.glide-scene').dataset.season = season;
+    document.getElementById('season-note').textContent = seasonCopy[season];
+  }));
+
   document.querySelectorAll('[data-replay]').forEach(button => button.addEventListener('click', () => {
     const scene = document.getElementById(button.dataset.replay);
     scene.querySelectorAll('[data-motion-frames]').forEach(actor => {
@@ -101,6 +156,7 @@
       Object.assign(state, { index: 0, elapsed: 0, started: false, finished: false });
       actor.src = state.frames[0];
     });
+    scene.querySelectorAll('[data-master-walk]').forEach(stopMasterWalk);
     scene.classList.remove('has-played');
     // Commit the reset before restarting both the CSS entrance and frame sequence.
     void scene.offsetWidth;

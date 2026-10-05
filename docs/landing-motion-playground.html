@@ -8,8 +8,8 @@
   <title>森の仲間が動き出す｜LP演出お試しページ</title>
   <link rel="icon" href="pattern-1-acorn-icon.png">
   <link rel="stylesheet" href="landing-motion-2.css">
-  <link rel="stylesheet" href="landing-motion-playground.css?v=20261005-animal-motion-review2">
-  <script defer src="landing-motion-playground.js?v=20261005-animal-motion-review2"></script>
+  <link rel="stylesheet" href="landing-motion-playground.css?v=20261005-season-motion-review4">
+  <script defer src="landing-motion-playground.js?v=20261005-season-motion-review4"></script>
 </head>
 <body class="playground">
   <svg class="motion-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -32,7 +32,7 @@
         <p>スクロールすると、森のあちこちから仲間が登場。<br>それぞれの動きで、ものがたりをつないでいきます。</p>
         <a class="pill-button" href="#story">森を歩いてみる <span aria-hidden="true">↓</span></a>
       </div>
-      <img class="hero-mascot hero-mascot--master" src="motion-assets/master-acorn.png" alt="" aria-hidden="true" data-enter="left" style="--enter-delay:0ms">
+      <span class="hero-master-walk" aria-hidden="true" data-enter="left" style="--enter-delay:0ms"><img class="hero-mascot hero-mascot--master" src="motion-assets/master-acorn.png" alt="" data-master-walk></span>
       <div class="hero-perch" aria-hidden="true">
         <img class="hero-bird" src="motion-assets/bird.png" alt="">
         <svg class="bird-eyelids" viewBox="0 0 1244 1264"><path d="M650 432Q720 413 831 430L825 508Q731 535 659 476Z" fill="#8b9eb5"/><path d="M906 430Q966 411 1041 430L1036 500Q962 524 910 473Z" fill="#8b9eb5"/><path d="M659 472Q735 493 818 470M912 472Q966 486 1034 467" fill="none" stroke="#514031" stroke-width="10" stroke-linecap="round"/></svg>
@@ -88,12 +88,24 @@
     </section>
 
     <section class="look" id="look" aria-labelledby="look-title">
-      <div class="look-copy" data-reveal><p class="eyebrow">04 — 森を見る</p><h2 id="look-title">数えたら、<br>景色も見てみよう。</h2><p>木の根元や落ち葉の下。ゆっくり歩くと、森の上にも気配が見つかります。</p></div>
-      <figure class="look-scene glide-scene" data-motion-threshold="0.1" data-motion-scene data-reveal>
+      <div class="look-copy" data-reveal><p class="eyebrow">04 — 森を見る</p><h2 id="look-title">季節が変わると、<br>出会いも変わる。</h2><p>季節を切り替えると、森の色とそこに暮らす仲間も変わります。春・夏・秋の景色を見比べてみましょう。</p></div>
+      <div class="season-switch" role="group" aria-label="季節の仲間の動きを試す">
+        <span>季節を切り替える</span>
+        <button type="button" data-season-choice="spring" aria-pressed="false">春 · チョウ</button>
+        <button type="button" data-season-choice="summer" aria-pressed="false">夏 · トンボとカエル</button>
+        <button type="button" data-season-choice="autumn" aria-pressed="true">秋 · 小鳥</button>
+      </div>
+      <figure class="look-scene glide-scene" data-motion-threshold="0.1" data-season="autumn" data-motion-scene data-reveal>
         <img src="motion-assets/forest-clearing.jpg" alt="秋の森の広場と、山の向こうへ広がる空" loading="lazy" width="1448" height="1086">
-        <span class="bird-flight-crop" aria-hidden="true"><img class="motion-character bird-glide" src="landing-assets/motion-test/bird/glide/frame-01.png" alt="" data-motion-frames="landing-assets/motion-test/bird/glide/frame-01.png|landing-assets/motion-test/bird/glide/frame-02.png|landing-assets/motion-test/bird/glide/frame-03.png|landing-assets/motion-test/bird/glide/frame-04.png" data-loop="true" data-frame-interval="260"></span>
+        <img class="motion-character owl-glide" src="landing-assets/motion-test/owl/glide/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/owl/glide/frame-01.png|landing-assets/motion-test/owl/glide/frame-02.png|landing-assets/motion-test/owl/glide/frame-03.png|landing-assets/motion-test/owl/glide/frame-04.png" data-loop="true" data-frame-interval="260">
+        <img class="motion-character season-guest season-guest--spring" src="landing-assets/motion-test/butterfly/flutter/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="spring" data-motion-frames="landing-assets/motion-test/butterfly/flutter/frame-01.png|landing-assets/motion-test/butterfly/flutter/frame-02.png|landing-assets/motion-test/butterfly/flutter/frame-03.png|landing-assets/motion-test/butterfly/flutter/frame-04.png" data-loop="true" data-frame-interval="240">
+        <img class="motion-character season-guest season-guest--summer" src="landing-assets/motion-test/dragonfly/glide/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="summer" data-motion-frames="landing-assets/motion-test/dragonfly/glide/frame-01.png|landing-assets/motion-test/dragonfly/glide/frame-02.png|landing-assets/motion-test/dragonfly/glide/frame-03.png|landing-assets/motion-test/dragonfly/glide/frame-04.png" data-loop="true" data-frame-interval="240">
+        <img class="motion-character season-guest season-guest--summer season-frog" src="landing-assets/motion-test/frog/idle-blink/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="summer" data-motion-frames="landing-assets/motion-test/frog/idle-blink/frame-01.png|landing-assets/motion-test/frog/idle-blink/frame-02.png|landing-assets/motion-test/frog/idle-blink/frame-03.png|landing-assets/motion-test/frog/idle-blink/frame-04.png" data-loop="true" data-frame-interval="380">
+        <img class="motion-character season-guest season-guest--autumn is-season-current" src="landing-assets/motion-test/bird/glide/frame-01.png" alt="" aria-hidden="true" data-seasonal-actor="autumn" data-motion-frames="landing-assets/motion-test/bird/glide/frame-01.png|landing-assets/motion-test/bird/glide/frame-02.png|landing-assets/motion-test/bird/glide/frame-03.png|landing-assets/motion-test/bird/glide/frame-04.png" data-loop="true" data-frame-interval="260">
+        <svg class="season-leaves" aria-hidden="true"><use href="#leaf-shelter"/></svg>
       </figure>
-      <p class="look-motion-note">枝にいた小鳥が、秋の森の空をゆっくり横切ります。</p>
+      <p class="season-note" id="season-note" aria-live="polite">秋の仲間：小鳥が、フクロウの飛ぶ空を横切ります。</p>
+      <p class="motion-context">景色の色と登場する仲間が、季節に合わせて変わります。</p>
       <p class="look-note" data-reveal>急がないで歩くと、見えるものが増えてくる。</p>
     </section>
 
@@ -104,7 +116,7 @@
       <div class="return-copy" data-reveal><p class="eyebrow">05 — 元の場所へ</p><h2 id="return-title">数えたら、<br>森へ返そう。</h2><p>マスターどんぐりに、リスとタヌキがついていく。どんぐりは森の仲間たちの食べものや、次の芽吹きにつながるもの。見つけた場所の近くへ戻そう。</p><p class="promise-note">公園の自然を、みんなで大切に。</p></div>
       <div class="return-demo"><div class="return-journey" id="return-motion" data-motion-scene role="img" aria-label="マスターどんぐりが進み、リスとタヌキがあとを追って森へどんぐりを返しに行く">
         <span class="master-walk-shadow" aria-hidden="true"></span>
-        <img class="return-walker return-master" src="motion-assets/master-acorn.png" alt="" aria-hidden="true">
+        <span class="return-walker return-master" aria-hidden="true"><img class="master-walk-frame" src="motion-assets/master-acorn.png" alt="" data-master-walk></span>
         <img class="return-walker return-squirrel" src="motion-assets/squirrel.png" alt="" aria-hidden="true">
         <img class="return-walker return-tanuki" src="landing-assets/motion-test/tanuki/walk/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/tanuki/walk/frame-01.png|landing-assets/motion-test/tanuki/walk/frame-02.png|landing-assets/motion-test/tanuki/walk/frame-03.png|landing-assets/motion-test/tanuki/walk/frame-04.png" data-loop="true" data-frame-interval="240" data-start-delay="1800" data-stop-after="6400">
         <svg class="return-destination" aria-hidden="true"><use href="#forest-acorn"/></svg><span class="destination-label">見つけた場所</span>
@@ -115,7 +127,7 @@
     <section class="closing" id="closing" aria-labelledby="closing-title">
       <div class="closing-demo"><figure class="closing-scene" id="closing-motion" data-reveal data-motion-scene>
         <img src="motion-assets/forest-clearing.jpg" alt="どんぐりを戻したあとの、静かな秋の森" loading="lazy" width="576" height="432">
-        <img class="closing-character closing-master" src="motion-assets/master-acorn.png" alt="" aria-hidden="true">
+        <span class="closing-character closing-master"><img src="motion-assets/master-acorn.png" alt="" aria-hidden="true"></span>
         <img class="closing-character closing-squirrel" src="motion-assets/squirrel.png" alt="" aria-hidden="true">
         <span class="closing-branch" aria-hidden="true"></span>
         <img class="closing-character closing-owl" src="landing-assets/motion-test/owl/perch-blink/frame-01.png" alt="" aria-hidden="true" data-motion-frames="landing-assets/motion-test/owl/perch-blink/frame-01.png|landing-assets/motion-test/owl/perch-blink/frame-02.png|landing-assets/motion-test/owl/perch-blink/frame-03.png|landing-assets/motion-test/owl/perch-blink/frame-04.png" data-start-delay="850" data-frame-interval="260">

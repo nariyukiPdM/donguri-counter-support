@@ -3,13 +3,18 @@
 .playground section { scroll-margin-top: 24px; }
 .playground .hero-caption { top: 91px; right: 5%; bottom: auto; padding: 7px 12px; border: 1px solid #fff9ed55; border-radius: 99px; background: #203e3488; font: 11px var(--display); transform: none; }
 .playground .hero-mascot { animation: none; }
+.hero-master-walk { position: absolute; z-index: 1; right: 24%; bottom: 7%; width: clamp(120px,16vw,210px); }
+.hero-master-walk .hero-mascot--master { position: relative; inset: auto; display: block; width: 100%; animation: none; }
+.hero.is-active .hero-master-walk .hero-mascot--master { animation: hero-master-steps .62s ease-in-out 5; transform-origin: 50% 92%; }
+@keyframes hero-master-steps { 0%,100% { transform: translateY(0) rotate(1deg); } 25% { transform: translateY(-6px) rotate(-1.6deg); } 50% { transform: translateY(0) rotate(1deg); } 75% { transform: translateY(-3px) rotate(-.8deg); } }
 .hero-perch { position: absolute; z-index: 2; width: clamp(88px, 10vw, 138px); right: 8%; top: 28%; }
 .hero-bird { width: 100%; height: auto; }
 .bird-eyelids { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
 .hero.is-active .bird-eyelids { animation: bird-blink 6s 2s infinite; }
 @keyframes bird-blink { 0%, 45%, 49%, 100% { opacity: 0; } 46%, 48% { opacity: 1; } }
+.hero.is-active .hero-perch { animation: perch-settle 6s 1s ease-in-out infinite; transform-origin: 50% 90%; }
+@keyframes perch-settle { 0%,42%,54%,100% { transform: translateY(0); } 47% { transform: translateY(-3px); } 50% { transform: translateY(0); } }
 .perch-branch, .stage-branch, .closing-branch { position: absolute; z-index: 1; width: 130%; height: 7px; left: -9%; bottom: 11%; border-radius: 80% 20% 40% 40%; background: #614b34; box-shadow: 0 2px 0 #aa7a46; transform: rotate(-4deg); }
-.playground .hero-mascot--master { right: 24%; bottom: 7%; width: clamp(120px, 16vw, 210px); }
 .playground .hero-mascot--squirrel { display: block; clip-path: inset(3% 2% 5% 2%); right: 3%; bottom: 4%; width: clamp(98px, 13vw, 166px); }
 .hero.is-active .hero-mascot--squirrel { animation: squirrel-curious 5s 1.5s ease-in-out infinite; }
 @keyframes squirrel-curious { 0%, 38%, 58%, 100% { translate: 0 0; rotate: 0deg; } 46% { translate: -4px 0; rotate: -3deg; } 52% { translate: 0 0; rotate: 0deg; } }
@@ -59,21 +64,42 @@
 .replay-motion:hover { background: #375c4b0c; }
 .replay-motion:focus-visible { outline: 3px solid #b66b3e; outline-offset: 4px; }
 .replay-motion--light { color: var(--cream); border-color: #fff9ed55; }
-/* 04: one small autumn bird crosses the sky. */
+/* 04: season controls compare a small number of visitors against the autumn forest. */
 .playground .look-scene { height: clamp(330px,43vw,520px); aspect-ratio: auto; }
 .playground .look-scene > img:first-child { object-position: center 43%; }
 .glide-scene { position: relative; isolation: isolate; overflow: hidden; container-type: inline-size; }
 .glide-scene > img:first-child { position: relative; z-index: 0; }
-.bird-flight-crop { position: absolute; z-index: 2; top: 9%; left: -20%; display: block; width: clamp(80px,11vw,140px); aspect-ratio: 1.7; overflow: hidden; opacity: 0; }
-.bird-flight-crop .bird-glide { top: -82%; left: -5%; width: 106.5%; max-width: none; clip-path: none; filter: none; }
-.glide-scene.is-active .bird-flight-crop { animation: bird-cross 10s linear infinite; }
-@keyframes bird-cross { 0% { left: -20%; translate: 0 8px; opacity: 0; } 8%, 85% { opacity: 1; } 50% { translate: 0 -18px; } 100% { left: 108%; translate: 0 6px; opacity: 0; } }
-.look-motion-note { min-height: 1.8em; margin: 12px auto 0; color: var(--moss); font: 16px var(--hand); }
+.glide-scene::after { content:""; position:absolute; z-index:1; inset:0; pointer-events:none; transition:background-color .7s ease,filter .7s ease; }
+.glide-scene[data-season="spring"]::after { background:rgba(99,157,91,.24); }
+.glide-scene[data-season="summer"]::after { background:rgba(255,194,87,.2); }
+.owl-glide { top: 9%; left: -20%; width: clamp(80px,11vw,140px); opacity: 0; }
+.owl-glide.is-playing { animation: owl-cross 10s linear infinite; }
+@keyframes owl-cross { 0% { left: -20%; translate: 0 8px; opacity: 0; } 8%,85% { opacity: 1; } 50% { translate: 0 -18px; } 100% { left: 108%; translate: 0 6px; opacity: 0; } }
+.season-guest { visibility: hidden; opacity: 0; }
+.season-guest.is-season-current { visibility: visible; opacity: 1; }
+.season-guest--spring { top: 26%; left: 68%; width: clamp(48px,7vw,82px); }
+.season-guest--summer { top: 24%; left: 68%; width: clamp(54px,7vw,88px); }
+.season-leaves { display: none; position: absolute; z-index: 3; right: 6%; bottom: 7%; width: 110px; height: 38px; }
+.glide-scene[data-season="summer"] .season-leaves { display: block; }
+.season-frog { top: auto; left: auto; right: 8%; bottom: 9%; width: clamp(60px,8vw,95px); }
+.season-guest--autumn { top: 30%; left: 70%; width: clamp(65px,9vw,108px); }
+.glide-scene.is-active .season-guest--spring.is-season-current { animation: butterfly-drift 7s ease-in-out infinite; }
+.glide-scene.is-active .season-guest--summer.is-season-current:not(.season-frog) { animation: dragonfly-drift 7s ease-in-out infinite; }
+.glide-scene.is-active .season-guest--autumn.is-season-current { animation: bird-cross 9s 1.4s linear infinite; }
+@keyframes butterfly-drift { 0%,100% { left: 68%; translate: 0 0; } 50% { left: 38%; translate: 0 -24px; } }
+@keyframes dragonfly-drift { 0%,100% { left: 66%; translate: 0 0; } 50% { left: 40%; translate: 0 18px; } }
+@keyframes bird-cross { 0% { left: 105%; opacity: 0; } 8%,85% { opacity: 1; } 100% { left: -18%; opacity: 0; } }
+.season-switch { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 9px; margin: 0 auto 18px; color: var(--deep); font-size: 13px; font-weight: 800; }
+.season-switch button { padding: 9px 14px; border: 1px solid #2d43303d; border-radius: 99px; background: #fff9eda8; color: var(--deep); font: inherit; cursor: pointer; }
+.season-switch button[aria-pressed="true"] { background: var(--deep); color: var(--cream); }
+.season-note { min-height: 1.8em; margin: 12px auto 0; color: var(--moss); font: 16px var(--hand); }
+.motion-context { margin: 9px auto 0; max-width: 48ch; color: var(--muted); font-size: 12px; line-height: 1.8; }
 /* 05: each animal moves steadily towards the marked return spot and stays there. */
 .return-demo { grid-column: 1/-1; min-width: 0; }
 .return-journey { position: relative; min-height: clamp(270px,31vw,360px); overflow: hidden; border-radius: 22px; background: linear-gradient(0deg,#1f352967,transparent 70%),url("motion-assets/forest-clearing.jpg") center 66%/cover; box-shadow: 0 18px 38px #1f2b312e; }
 .return-walker { position: absolute; z-index: 2; bottom: 20%; width: 14%; max-width: 145px; height: auto; object-fit: contain; opacity: 0; filter: drop-shadow(0 6px 8px #0f19172e); clip-path: inset(3% 2% 5% 2%); }
 .return-master { --walk-from: -20%; --walk-to: 66%; width: 16%; max-width: 165px; transform-origin: 50% 92%; }
+.return-master .master-walk-frame { display:block; width:100%; height:auto; }
 .return-squirrel { --walk-from: -22%; --walk-to: 43%; width: 13%; max-width: 118px; transform-origin: 50% 92%; }
 .return-journey .return-tanuki { --walk-from: -25%; --walk-to: 22%; width: 15%; max-width: 138px; bottom: 20%; right: auto; }
 .master-walk-shadow { position: absolute; z-index: 1; bottom: 18%; left: var(--walk-from, -20%); width: 17%; height: 16px; border-radius: 50%; background: radial-gradient(ellipse, #19272266, #19272200 72%); opacity: 0; }
@@ -96,7 +122,12 @@
 .playground .closing-scene > img:first-child { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; border: 0; border-radius: 0; }
 .playground .closing-scene > .closing-character { position: absolute; z-index: 2; width: 20%; height: auto; max-width: none; aspect-ratio: auto; object-fit: contain; border: 0; border-radius: 0; clip-path: inset(3% 2% 5% 2%); filter: drop-shadow(0 4px 6px #1f231929); }
 .playground .closing-scene .closing-master { width: 25%; left: 37%; bottom: 8%; }
+.playground .closing-scene .closing-master img { display:block; width:100%; height:auto; }
 .playground .closing-scene .closing-squirrel { width: 21%; left: 9%; bottom: 7%; }
+.closing-scene.is-active .closing-master { animation: closing-master-settle 5s 1.2s ease-in-out 1 both; transform-origin:50% 95%; }
+.closing-scene.is-active .closing-squirrel { animation: closing-squirrel-tail 5s 1.2s ease-in-out 1 both; transform-origin:74% 79%; }
+@keyframes closing-master-settle { 0%,72%,100% { transform:translateY(0) rotate(0); } 80% { transform:translateY(-4px) rotate(-1.3deg); } 88% { transform:translateY(0) rotate(.5deg); } }
+@keyframes closing-squirrel-tail { 0%,74%,100% { transform:rotate(0); } 80% { transform:rotate(-1.5deg); } 86% { transform:rotate(1deg); } 92% { transform:rotate(0); } }
 .playground .closing-scene .closing-tanuki { width: 24%; left: 70%; bottom: 7%; }
 .playground .closing-scene .closing-owl { width: 18%; right: 7%; top: 9%; }
 .closing-branch { width: 29%; left: auto; right: -3%; top: 32%; bottom: auto; }
@@ -114,7 +145,7 @@
  .playground .hero h1 { font-size: clamp(34px,9.4vw,58px); }
  .playground .hero-copy { max-width: 570px; }
  .playground .hero-caption { display: block; top: 74px; right: 18px; font-size: 10px; }
- .playground .hero-mascot--master { right: 38%; bottom: 8%; width: clamp(120px,29vw,160px); }
+ .hero-master-walk { right: 38%; bottom: 8%; width: clamp(120px,29vw,160px); }
  .playground .hero-mascot--squirrel { right: 4%; bottom: 7%; width: clamp(91px,24vw,120px); }
  .hero-perch { right: 5%; top: auto; bottom: 27%; width: 87px; }
  .hero-leaves { right: -2%; bottom: 6%; width: 145px; height: 50px; }
@@ -130,7 +161,14 @@
  .stage-branch { top: 40%; }
  .playground .look h2 { font-size: clamp(28px,8vw,40px); }
  .playground .look-scene { height: auto; aspect-ratio: 4/3; }
- .bird-flight-crop { width: 80px; }
+ .owl-glide { width: 80px; }
+ .season-guest--spring, .season-guest--summer { width: 53px; }
+ .season-frog { width: 62px; }
+ .season-guest--autumn { width: 70px; }
+ .season-switch { gap: 7px; font-size: 11px; }
+ .season-switch > span { flex-basis: 100%; margin-bottom: 3px; }
+ .season-switch button { padding: 9px 10px; }
+ .season-note { font-size: 14px; line-height: 1.8; }
  .look-motion-note { font-size: 14px; line-height: 1.8; }
  .playground .return { grid-template-columns: 1fr; }
  .return-journey { min-height: 250px; }
@@ -148,7 +186,8 @@
 @media (prefers-reduced-motion: reduce) {
  .playground [data-reveal], .playground [data-enter] { opacity: 1 !important; transform: none !important; }
  .bird-eyelids { display: none; }
- .glide-scene.is-active .bird-flight-crop { left: 17%; opacity: 1; translate: none; animation: none !important; }
+ .glide-scene.is-active .owl-glide { left: 17%; opacity: 1; translate: none; animation: none !important; }
+ .glide-scene.is-active .season-guest.is-season-current { animation: none !important; }
  .playground .return-journey .return-walker { animation: none !important; left: var(--walk-to); opacity: 1; translate: none; rotate: none; }
  .master-walk-shadow { animation: none !important; left: 66%; opacity: .55; }
  .replay-motion { display: none; }
